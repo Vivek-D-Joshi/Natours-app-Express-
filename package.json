@@ -4,8 +4,7 @@
 	"description": "API",
 	"main": "app.js",
 	"scripts": {
-		"start": "nodemon app.js",
-		"build": "npm run build"
+		"start": "nodemon app.js"
 	},
 	"author": "Vivek Joshi",
 	"license": "ISC",
@@ -19,3 +18,4 @@
 		"nodemon": "^3.0.2"
 	}
 }
+
