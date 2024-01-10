@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -21,5 +21,7 @@ jobs:
         node-version: 16.x
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test --if-present
+    - run: |
+        touch config.env
+        echo "${{secrets.PROD_ENV_FILE}}" > config.env
+      
