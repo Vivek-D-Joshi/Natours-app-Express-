@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  nodejs_app:
+    build:
+      context: .
+      dockerfile: DockerFile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      PORT: 3300
+      DATABASE_LOCAL: mongodb://vivek_joshi:root%40123%23@mongodb:27017/natours-test
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: vivek_joshi
+      MONGO_INITDB_ROOT_PASSWORD: root%40123%23
+    volumes:
+      - mongo-data:/data/db
+    command: mongod --auth
+
+volumes:
+  mongo-data:
+    driver: local
