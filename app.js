@@ -6,10 +6,11 @@ const fs = require("fs");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
-const port = process.env.PORT || 3000;
 
 dotenv.config({ path: "./config.env" });
 app.use(express.json());
+
+const port = process.env.PORT || 3000;
 
 // const DB = process.env.DATABASE.replace(
 //   '<PASSWORD>',
