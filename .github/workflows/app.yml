@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -24,5 +24,8 @@ jobs:
     - run: |
         touch config.env
         echo "${{secrets.PROD_ENV_FILE}}" > config.env
-    - run: pm2 restart API
-      
+  
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: pm2 restart API    
