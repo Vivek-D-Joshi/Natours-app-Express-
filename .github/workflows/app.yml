@@ -28,4 +28,4 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - uses: pm2 restart API    
+      - run: pm2 restart API    
