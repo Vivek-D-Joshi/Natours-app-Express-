@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { TourModel } = require('../models/Tour');
-const ApiFeatures = require('./Pagination');
+const ApiFeatures = require('./ApiFeatures');
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours.json`)
 );

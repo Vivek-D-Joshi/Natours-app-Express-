@@ -24,8 +24,13 @@ jobs:
     - run: |
         touch config.env
         echo "${{secrets.PROD_ENV_FILE}}" > config.env
-  
-  deploy:
-    runs-on: self-hosted
-    steps:
-      - run: pm2 restart API    
+    - name: SSH into EC2 and restart PM2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        script: |
+          cd actions-runner-natours/_work/Natours-app-Express-
+          git pull origin main
+          pm2 restart API
