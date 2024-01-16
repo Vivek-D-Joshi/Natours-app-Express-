@@ -20,7 +20,7 @@ const port = process.env.PORT || 3000;
 const DB_LOCAL = process.env.DATABASE_LOCAL;
 
 mongoose.connect(DB_LOCAL).then(() => {
-	console.log("Database connected successfully...!!!");
+	console.log("Database connected successfully...!");
 });
 
 //serve static files through express
