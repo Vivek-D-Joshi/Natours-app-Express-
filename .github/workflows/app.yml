@@ -31,6 +31,6 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
-          cd actions-runner-natours/_work/Natours-app-Express-
+          cd /home/actions-runner-natours/_work/Natours-app-Express-
           git pull origin main
           pm2 restart API
